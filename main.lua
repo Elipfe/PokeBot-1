@@ -100,7 +100,7 @@ local function generateNextInput(currentMap)
 		if currentMap == 0 then
 			if running then
 				if not hasAlreadyStartedPlaying then
-					client.reboot_core()
+					if emu.framecount() ~= 1 then client.reboot_core() end
 					hasAlreadyStartedPlaying = true
 				else
 					resetAll()
